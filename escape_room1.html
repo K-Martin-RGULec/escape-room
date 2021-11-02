@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/escaperoom.css" rel="stylesheet">
+	
+	<style>
+	</style>
+  </head>
+
+  <body>
+	<header>
+		<img src='images/logo.PNG' class='center' style="height:100%;"/>
+	</header>
+
+    <main class="px-3">
+
+		<div class="row">
+		<div id="pix" class="col-12 col-md-8">
+			<img src='images/q1pic.PNG' style="height:100%;width:100%"/>
+		</div>
+        	<div id='text' class="col-6 col-md-4">
+				<p>You check the door once again. The room uses an electronic lock system with four characters as a PIN. A post-it above the lock says:</p>
+				<p>'Students, please stop forgetting the PIN for the labs! To remind you consider these clues:</p>
+				<ol>
+					<li>Take the 9th letter of the technique which uses electricity to separate DNA fragments according to their size</li>
+					<li>One of the letters that appears twice in the full name for PCR</li>
+					<li>One of the letters which appears only once when you write DNA out in full</li>
+					<li>The 16th letter of the sequence which is complementary to this one: CCGTATCCTAGTGATACTTGACAT</li>
+				</ol>
+				<p>- Yours, Dr R.G.'</p>
+			</div>
+		</div>
+	
+		<div id='QandA' class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		
+			<p id="question" class="lead">What is the code? (Use all capital letters).</p>
+			  <form id="form" class="d-flex" name="answer-box" onsubmit="return checkAnswers()">
+				<input id="answer-box" class="form-control me-2" type="text" name="answer" placeholder="The answer is..." aria-label="Answer">
+				<button id="button" class="btn btn-outline-success" type="submit">Answer</button>
+			  </form>
+		</div>
+	</main>
+
+	  <footer class="mt-auto text-white-50">
+	  </footer>
+	  
+	<script>
+	let a = ["HINT"];
+	let n = 0
+	
+	function checkAnswers() {
+	  let x = document.forms["answer-box"]["answer"].value;
+	  if (x == a) {
+          askQuestion("<p>With a final beep, the lasers turn off.</p><a href='escape_room2.html' class='btn btn-outline-success'> Exit the room. </a>");
+          document.getElementById("answer-box").style = "visibility:hidden";
+          document.getElementById("button").style = "visibility:hidden";
+		  return false;
+	    }
+	    else {
+          alert("The door does nothing. It seems the code was incorrect. Try another code.");
+		  return false;
+	    }
+	  }
+	
+	function askQuestion(newQ) {
+		document.getElementById("question").innerHTML = newQ;
+	}
+
+	</script>
+
+  </body>
+</html>

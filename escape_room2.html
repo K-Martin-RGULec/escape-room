@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/escaperoom.css" rel="stylesheet">
+	
+	<style>
+	</style>
+  </head>
+
+  <body>
+	<header>
+		<img src='images/logo.PNG' class='center' style="height:100%;"/>
+	</header>
+
+    <main class="px-3">
+
+		<div class="row">
+		<div id="pix" class="col-12 col-md-8">
+			 <!-- Slideshow container -->
+			 <div class="slideshow-container">
+
+                <!-- Full-width images with number and caption text -->
+				<div class="mySlides fade">
+				<div class="numbertext">1 / 2</div>
+				<img src='images/q2pic1.PNG' style="width:100%" onmouseover="this.src='images/q2pic2.PNG'" onmouseout="this.src='images/q2pic1.PNG'">
+				<div class="carouselText">The Seemingly Innocent Corridor</div>
+				</div>
+
+				<div class="mySlides fade">
+                <div class="numbertext">2 / 2</div>
+                <img src="images/q2pic3.PNG" style="width:100%">
+                <div class="carouselText">The Laser Stopping Puzzle</div>
+                </div>
+            
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+		</div>
+        	<div id='text' class="col-6 col-md-4">
+                <p>As you exit the classroom, you enter a strange hallway. The lights flicker, and you stop dead in your tracks as the hallway is suddenly filled with lazers. A note on the wall reminds students to please activate the research defense system before they leave, with a reminder that the code is a type of acid found in the attached wordsearch.</p>
+                <p>With a sinking feeling in your stomach, you realise this will not be the last puzzle you have to solve before finding the professor...</p>
+			</div>
+		</div>
+	
+		<div id='QandA' class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		
+			<p id="question" class="lead">What is the code? (Use all capital letters).</p>
+			  <form id="form" class="d-flex" name="answer-box" onsubmit="return checkAnswers()">
+				<input id="answer-box" class="form-control me-2" type="text" name="answer" placeholder="The answer is..." aria-label="Answer">
+				<button id="button" class="btn btn-outline-success" type="submit">Answer</button>
+			  </form>
+		</div>
+	</main>
+
+	  <footer class="mt-auto text-white-50">
+	  </footer>
+	  
+	<script>
+	
+	let a = "LACTIC";
+	let n = 0
+	
+	function checkAnswers() {
+	  let x = document.forms["answer-box"]["answer"].value;
+			
+	  if (x == a) {
+          askQuestion("<p>With a final beep, the lasers turn off.</p><a href='escape_room3.html' class='btn btn-outline-success'> Exit the room. </a>");
+          document.getElementById("answer-box").style = "visibility:hidden";
+          document.getElementById("button").style = "visibility:hidden";
+		  return false;
+	    }
+	    else {
+          alert("There are three beeps, but the lasers do not turn off. Try another type of acid.");
+		  return false;
+	    }
+	  }
+	
+	
+	function askQuestion(newQ) {
+		document.getElementById("question").innerHTML = newQ;
+	}
+
+	var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+    showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+    showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    }
+
+	</script>
+
+  </body>
+</html>

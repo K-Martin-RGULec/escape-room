@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/escaperoom.css" rel="stylesheet">
+	
+	<style>
+	</style>
+  </head>
+
+  <body>
+	<header>
+		<img src='images/logo.PNG' class='center' style="height:100%;"/>
+	</header>
+
+    <main class="px-3">
+
+		<div class="row">
+		<div id="pix" class="col-12 col-md-8">
+            <iframe class='center' width="560" height="315" src="https://www.youtube.com/embed/7J47P7Dh3EA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+        	<div id='text' class="col-6 col-md-4">
+                <p>You reach the bottom of the stairs and find yourself face-to-face with a locked door and a TV sitting above it. Before you can even begin to debate the logistics of having a TV above a door (honestly, people walking in and out would distract you from the shows), the TV begins to play...</p>
+                <p>As the TV plays, you notice a small keypad to the right of the door.</p>
+            </div>
+		</div>
+	
+		<div id='QandA' class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		
+			<p id="question" class="lead">What is the element of the substance which changes temperature of the ice?</p>
+			  <form id="form" class="d-flex" name="answer-box" onsubmit="return checkAnswers()">
+				<input id="answer-box" class="form-control me-2" type="text" name="answer" placeholder="The answer is..." aria-label="Answer">
+				<button id="button" class="btn btn-outline-success" type="submit">Answer</button>
+			  </form>
+		</div>
+	</main>
+
+	  <footer class="mt-auto text-white-50">
+	  </footer>
+	
+	<script>
+	let a = "NaCI";
+	let n = 0
+  
+	function checkAnswers() {
+	  let x = document.forms["answer-box"]["answer"].value;
+			
+	  if (x == a) {
+          askQuestion("<p>The door swings open as the TV turns off.</p><a href='escape_room6.html' class='btn btn-outline-success'>Enter the door.</a>");
+          document.getElementById("answer-box").style = "visibility:hidden";
+          document.getElementById("button").style = "visibility:hidden";
+		  return false;
+	    }
+	    else {
+          alert("The door does not move, and the video on the TV loops once more.");
+		  return false;
+	    }
+	}
+	
+	
+	function askQuestion(newQ) {
+		document.getElementById("question").innerHTML = newQ;
+	}
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+    showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+    showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    }
+
+	</script>
+
+  </body>
+</html>

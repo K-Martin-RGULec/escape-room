@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/escaperoom.css" rel="stylesheet">
+	
+	<style>
+	</style>
+  </head>
+
+  <body>
+	<header>
+		<img src='images/logo.PNG' class='center' style="height:100%;"/>
+	</header>
+
+    <main class="px-3">
+
+		<div class="row">
+		<div id="pix" class="col-12 col-md-8">
+			<img class='center' src='images/q9pic.PNG' style="height:100%"/>
+		</div>
+        	<div id='text' class="col-6 col-md-4">
+                <p>Find the super secret gene sequence. Complete the maze to discover the missing components of the sequence.</p>
+                <p>There is an A every time you turn <strong>Left</strong></p>
+                <p>There is a T every time you turn <strong>Right</strong></p>
+                <p>The professor has left some notes to help you, and done the first two asan example. COmbine the letters you discovered with the rest of the gene sequence to find the full sequence!</p>
+            </div>
+		</div>
+	
+		<div id='QandA' class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		
+			<p id="question" class="lead">What is the genetic code? (Use all capital letters and give the complete code).</p>
+			  <form id="form" class="d-flex" name="answer-box" onsubmit="return checkAnswers()">
+				<input id="answer-box" class="form-control me-2" type="text" name="answer" placeholder="The answer is..." aria-label="Answer">
+				<button id="button" class="btn btn-outline-success" type="submit">Answer</button>
+			  </form>
+		</div>
+	</main>
+
+	  <footer class="mt-auto text-white-50">
+	  </footer>
+	  
+	<script>
+	let a = "TCGAACTTGGAAACGTGTAGCTTA";
+	let n = 0
+	
+	function checkAnswers() {
+	  let x = document.forms["answer-box"]["answer"].value;
+			
+	  if (x == a) {
+          askQuestion("<p>You put the gene sequence into the machine and hold your breath...</p><a href='escape_room10.html' class='btn btn-outline-success'> Create the Awakening cure </a>");
+          document.getElementById("answer-box").style = "visibility:hidden";
+          document.getElementById("button").style = "visibility:hidden";
+		  return false;
+	    }
+	    else {
+          alert("The gene sequence will not be stable in the machine! Try another gene sequence.");
+		  return false;
+	    }
+	  }
+	
+	
+	function askQuestion(newQ) {
+		document.getElementById("question").innerHTML = newQ;
+	}
+
+	</script>
+
+  </body>
+</html>
