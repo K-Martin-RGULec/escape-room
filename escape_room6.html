@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/escaperoom.css" rel="stylesheet">
+	
+	<style>
+	</style>
+
+    <script src='css/escape_room.js'></script>
+  </head>
+
+  <body>
+	<header>
+		<img src='images/logo.PNG' class='center' style="height:100%;"/>
+	</header>
+
+    <main class="px-3">
+
+		<div class="row">
+		<div id="pix" class="col-12 col-md-8" style='padding:10px;padding-top:50px;background-color: white;'>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+            <img id="dragger1" src='images/q6_s.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger2" src='images/q6_o.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger3" src='images/q6_l.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger4" src='images/q6_e.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger5" src='images/q6_c.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger6" src='images/q6_i.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger7" src='images/q6_s.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger8" src='images/q6_e.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <img id="dragger9" src='images/q6_s.jpg' draggable="true" ondragstart="drag(event)" width="70" height="70"/>
+            <br>
+            <br>
+            <p>If you drop any tiles, then refresh the page and all tiles will be reset.</p>
+        </div>
+        	<div id='text' class="col-6 col-md-4">
+                <p>Entering the door reveals a mostly empty classroom. However, the moment you step over the threshold the door slams behind you and the door opposite stays locked. A small red light flashes in the corner.</p>
+                <p>Beside the exit door a small panel rises in the wall to reveal a tile puzzle. A helpful note from Dr R.G. reminds you that students should think on their feet in order to approach a problem from multiple angles (preferably three).</p>
+                <p>You are beginning to not like Dr Gordon, and are seriously contemplating not saving him.</p>
+                <p>Drag and drop to complete the anagram to escape the room before security is called!</p>
+            </div>
+		</div>
+	
+		<div id='QandA' class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		
+			<p id="question" class="lead">What is the answer to the code puzzle? (Use all capital letters and give the complete code).</p>
+			  <form id="form" class="d-flex" name="answer-box" onsubmit="return checkAnswers()">
+				<input id="answer-box" class="form-control me-2" type="text" name="answer" placeholder="The answer is..." aria-label="Answer">
+				<button id="button" class="btn btn-outline-success" type="submit">Answer</button>
+			  </form>
+		</div>
+	</main>
+
+	  <footer class="mt-auto text-white-50">
+	  </footer>
+	
+	<script>
+
+	let a = "ISOSCELES";
+	let n = 0
+  
+	function checkAnswers() {
+	  let x = document.forms["answer-box"]["answer"].value;
+			
+	  if (x == a) {
+          askQuestion("<p>The alarm turns off and both doors swing open.</p><a href='escape_room7.html' class='btn btn-outline-success'>Enter the door.</a>");
+          document.getElementById("answer-box").style = "visibility:hidden";
+          document.getElementById("button").style = "visibility:hidden";
+		  return false;
+	    }
+	    else {
+          alert("The door does not move, and the alarm somehow gets even louder.");
+		  return false;
+	    }
+	}
+	
+	
+	function askQuestion(newQ) {
+		document.getElementById("question").innerHTML = newQ;
+	}
+	</script>
+
+  </body>
+</html>
