@@ -63,6 +63,16 @@ body {
     border-radius: 1em;
 }
 
+/* Drag and Drop */
+.dropper {
+  width: 80px;
+  height: 80px;
+  padding: 5px;
+  border: 1px solid #aaaaaa;
+  border-radius: 1em;
+  display: inline-block;
+}
+
 /*carousel*/
 * {box-sizing:border-box}
 

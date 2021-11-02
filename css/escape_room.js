@@ -1,3 +1,4 @@
+/*Carousel */
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -27,3 +28,17 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+/*Drag and Drop */
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
