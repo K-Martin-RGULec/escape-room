@@ -20,18 +20,21 @@
 
 		<div class="row">
 		<div id="pix" class="col-12 col-md-8">
-			<img src='images/q1pic.PNG' style="height:100%;width:100%"/>
+			<img src='images/q8pic.PNG' style="height:100%;width:100%"/>
 		</div>
         	<div id='text' class="col-6 col-md-4">
-				<p>You check the door once again. The room uses an electronic lock system with four characters as a PIN. A post-it above the lock says:</p>
-				<p>'Students, please stop forgetting the PIN for the labs! To remind you consider these clues:</p>
-				<ol>
-					<li>Take the 9th letter of the technique which uses electricity to separate DNA fragments according to their size</li>
-					<li>One of the letters that appears twice in the full name for PCR</li>
-					<li>One of the letters which appears only once when you write DNA out in full</li>
-					<li>The 16th letter of the sequence which is complementary to this one: CCGTATCCTAGTGATACTTGACAT</li>
-				</ol>
-				<p>- Yours, Dr R.G.'</p>
+				<p>At the end of the hallway you find the door to the professor's laboratory. Finally. Through the small pane of glass, you can see the pressure asleep on the desk.</p>
+                <p>You resolve to enter, but the door is locked. On the right you recognise a code box similar to the one in the first room. And of all things, a poem written on a post-it:</p>
+				<p>'Oh I like my lazer puzzles,</p>
+                <p>They leave my students confuzzled!</p>
+                <p>To gain entry to my office,</p>
+                <p>You must know how I like my fish.</p>
+                <p>First I add lazer one, then I add this first clue.</p>
+                <p>In America it used to cost lazer two!</p>
+                <p>But since we're now in Scotland,</p>
+                <p>I guess it makes up the pound.</p>
+				<p>Dr R.G.</p>
+                <p>P.S. _ _ _ _ _ _ _ AND _ _ _ _ _'</p>
 			</div>
 		</div>
 	
@@ -49,13 +52,13 @@
 	  </footer>
 	  
 	<script>
-	let a = ["HINT"];
+	let a = ["VINEGAR AND PENNY"];
 	let n = 0
 	
 	function checkAnswers() {
 	  let x = document.forms["answer-box"]["answer"].value;
 	  if (x == a) {
-          askQuestion("<p>With a buzz, the door opens.</p><a href='escape_room2.html' class='btn btn-outline-success'> Exit the room. </a>");
+          askQuestion("<p>With a buzz, the door opens..</p><a href='escape_room8-2.html' class='btn btn-outline-success'> Exit the room. </a>");
           document.getElementById("answer-box").style = "visibility:hidden";
           document.getElementById("button").style = "visibility:hidden";
 		  return false;
